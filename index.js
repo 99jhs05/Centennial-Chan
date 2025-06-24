@@ -10,6 +10,7 @@ const client = new Client({
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.GuildMembers,
         GatewayIntentBits.DirectMessages,
+        GatewayIntentBits.MessageContent,
     ],
 });
 
@@ -35,22 +36,18 @@ client.on("guildMemberAdd", member => {
     }
 });
 
-console.log("Please work"); 
-client.on("messageCreate", msg => {
+client.on("messageCreate", async msg => {
     console.log(msg.content);
-    console.log("WHy why why no work"); 
     if (msg.content == "!gif") {
 
         msg.channel.send("what? gif?");
 
-        // let url = gifLinks[Math.floor(Math.random() * array.length)];
-        // let response = await fetch(url);
-        // let json = await response.json();
+        let url = gifLinks[Math.floor(Math.random() * array.length)];
+        let response = await fetch(url);
+        let json = await response.json();
 
-        // msg.channel.send(json.results[0].url);
+        msg.channel.send(json.results[0].url);
     }
 });
-
-console.log("did it work"); 
 
 client.login(process.env.DISCORD_TOKEN);
