@@ -3,7 +3,6 @@ dotenv.config()
 
 import { Client, GatewayIntentBits } from 'discord.js';
 
-const fetch = require('node-fetch');
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
