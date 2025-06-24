@@ -55,12 +55,12 @@ client.on("messageCreate", async msg => {
         msg.channel.send(json.results[0].url);
     }
 
-    if (message.author.bot) return;
+    if (msg.author.bot) return;
 
     // Check if the bot is mentioned in the message
-    if (message.mentions.has(client.user.id)) {
+    if (msg.mentions.has(client.user.id)) {
         // Reply to the message
-        await message.reply("Hey I'm just a bot. Don't ping me");
+        await msg.reply("Hey I'm just a bot. Don't ping me");
     }
 });
 
