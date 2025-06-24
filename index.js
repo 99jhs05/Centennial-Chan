@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 dotenv.config()
 
-import { Client, GatewayIntentBits } from 'discord.js';
+import { Client, GatewayIntentBits, MessageAttachment } from 'discord.js';
 
 const client = new Client({
     intents: [
@@ -12,8 +12,6 @@ const client = new Client({
         GatewayIntentBits.MessageContent,
     ],
 });
-
-const { MessageAttachment } = require('discord.js')
 
 const gifLinks = ["https://nekos.best/api/v2/hug", "https://nekos.best/api/v2/smile", "https://nekos.best/api/v2/highfive"];
 const gifMessages = ["Did someone say gif?", "Here's a random Anime gif for you...", "Yeah, I'm bored too. Here's the gif you wanted."];
