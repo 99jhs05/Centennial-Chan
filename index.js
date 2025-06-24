@@ -37,7 +37,8 @@ client.on("guildMemberAdd", member => {
 
 console.log("Please work"); 
 client.on("messageCreate", msg => {
-    console.log(msg.content); 
+    console.log(msg.content);
+    console.log("WHy why why no work"); 
     if (msg.content == "!gif") {
 
         msg.channel.send("what? gif?");
