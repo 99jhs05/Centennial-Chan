@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 dotenv.config()
 
-import { Client, GatewayIntentBits, MessageAttachment } from 'discord.js';
+import { Client, GatewayIntentBits } from 'discord.js';
 
 const client = new Client({
     intents: [
@@ -81,23 +81,17 @@ client.on("messageCreate", async msg => {
         let dice = Math.floor(1 + Math.random() * 6);
 
         if (dice == 1){
-            const attachment = new MessageAttachment(dice1ImageURL);
-            msg.channel.send({ content: `**${dice}!**`, files: [attachment] })
+            msg.channel.send({ content: `**${dice}!**`, files: [dice1ImageURL] })
         } else if (dice == 2){
-            const attachment = new MessageAttachment(dice2ImageURL);
-            msg.channel.send({ content: `**${dice}!**`, files: [attachment] })
+            msg.channel.send({ content: `**${dice}!**`, files: [dice2ImageURL] })
         } else if (dice == 3){
-            const attachment = new MessageAttachment(dice3ImageURL);
-            msg.channel.send({ content: `**${dice}!**`, files: [attachment] })
+            msg.channel.send({ content: `**${dice}!**`, files: [dice3ImageURL] })
         } else if (dice == 4){
-            const attachment = new MessageAttachment(dice4ImageURL);
-            msg.channel.send({ content: `**${dice}!**`, files: [attachment] })
+            msg.channel.send({ content: `**${dice}!**`, files: [dice4ImageURL] })
         } else if (dice == 5){
-            const attachment = new MessageAttachment(dice5ImageURL);
-            msg.channel.send({ content: `**${dice}!**`, files: [attachment] })
+            msg.channel.send({ content: `**${dice}!**`, files: [dice5ImageURL] })
         } else {
-            const attachment = new MessageAttachment(dice6ImageURL);
-            msg.channel.send({ content: `**${dice}!**`, files: [attachment] })
+            msg.channel.send({ content: `**${dice}!**`, files: [dice6ImageURL] })
         }
     }
     
