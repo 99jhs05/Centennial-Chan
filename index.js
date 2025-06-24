@@ -3,8 +3,6 @@ dotenv.config()
 
 import { Client, GatewayIntentBits } from 'discord.js';
 
-const gifLinks = ["https://nekos.best/api/v2/hug", "https://nekos.best/api/v2/smile", "https://nekos.best/api/v2/highfive"];
-const gifMessages = ["Did someone say gif?", "Here's a random Anime gif for you...", "Yeah, I'm bored too. Here's the gif you wanted."];
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -14,6 +12,11 @@ const client = new Client({
         GatewayIntentBits.MessageContent,
     ],
 });
+
+const { MessageAttachment } = require('discord.js')
+
+const gifLinks = ["https://nekos.best/api/v2/hug", "https://nekos.best/api/v2/smile", "https://nekos.best/api/v2/highfive"];
+const gifMessages = ["Did someone say gif?", "Here's a random Anime gif for you...", "Yeah, I'm bored too. Here's the gif you wanted."];
 
 client.on("guildMemberAdd", async member => {
     console.log(`${member.user.tag} has joined the server!`);
@@ -78,26 +81,25 @@ client.on("messageCreate", async msg => {
 
     if (msg.content == "!dice6") {
         let dice = Math.floor(1 + Math.random() * 6);
-        msg.channel.send(`**${dice}!**`);
 
         if (dice == 1){
-            let response = await fetch(dice1ImageURL);
-            msg.channel.send(response);
+            const attachment = new MessageAttachment(dice1ImageURL);
+            msg.channel.send({ content: `**${dice}!**`, files: [attachment] })
         } else if (dice == 2){
-            let response = await fetch(dice2ImageURL);
-            msg.channel.send(response);
+            const attachment = new MessageAttachment(dice2ImageURL);
+            msg.channel.send({ content: `**${dice}!**`, files: [attachment] })
         } else if (dice == 3){
-            let response = await fetch(dice3ImageURL);
-            msg.channel.send(response);
+            const attachment = new MessageAttachment(dice3ImageURL);
+            msg.channel.send({ content: `**${dice}!**`, files: [attachment] })
         } else if (dice == 4){
-            let response = await fetch(dice4ImageURL);
-            msg.channel.send(response);
+            const attachment = new MessageAttachment(dice4ImageURL);
+            msg.channel.send({ content: `**${dice}!**`, files: [attachment] })
         } else if (dice == 5){
-            let response = await fetch(dice5ImageURL);
-            msg.channel.send(response);
+            const attachment = new MessageAttachment(dice5ImageURL);
+            msg.channel.send({ content: `**${dice}!**`, files: [attachment] })
         } else {
-            let response = await fetch(dice6ImageURL);
-            msg.channel.send(response);
+            const attachment = new MessageAttachment(dice6ImageURL);
+            msg.channel.send({ content: `**${dice}!**`, files: [attachment] })
         }
     }
     
