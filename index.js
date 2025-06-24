@@ -4,6 +4,7 @@ dotenv.config()
 import { Client, GatewayIntentBits } from 'discord.js';
 
 const gifLinks = ["https://nekos.best/api/v2/hug", "https://nekos.best/api/v2/smile", "https://nekos.best/api/v2/highfive"];
+const gifMessages = ["Did someone say gif?", "Here's a random Anime gif for you...", "Yeah, I'm bored too. Here's the gif you wanted."];
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -14,7 +15,7 @@ const client = new Client({
     ],
 });
 
-client.on("guildMemberAdd", member => {
+client.on("guildMemberAdd", async member => {
     console.log("${member.user.tag} has joined the server!");
 
     // Example: Send a welcome message to a specific channel
@@ -23,6 +24,12 @@ client.on("guildMemberAdd", member => {
 
     if (welcomeChannel) {
         welcomeChannel.send("Welcome to Centennial Anime Club, ${member}! :partying_face::partying_face: ");
+
+                let url = gifLinks[Math.floor(Math.random() * gifLinks.length)];
+        let response = await fetch(url);
+        let json = await response.json();
+
+        welcomeChannel.send(json.results[0].url);
     }
 
     // Example: Assign a default role
@@ -37,16 +44,23 @@ client.on("guildMemberAdd", member => {
 });
 
 client.on("messageCreate", async msg => {
-    console.log(msg.content);
     if (msg.content == "!gif") {
 
-        msg.channel.send("what? gif?");
+        msg.channel.send(gifMessages[Math.floor(Math.random() * gifMessages.length)]);
 
         let url = gifLinks[Math.floor(Math.random() * gifLinks.length)];
         let response = await fetch(url);
         let json = await response.json();
 
         msg.channel.send(json.results[0].url);
+    }
+
+    if (message.author.bot) return;
+
+    // Check if the bot is mentioned in the message
+    if (message.mentions.has(client.user.id)) {
+        // Reply to the message
+        await message.reply("Hey I'm just a bot. Don't ping me");
     }
 });
 
