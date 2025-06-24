@@ -3,6 +3,7 @@ dotenv.config()
 
 import { Client, GatewayIntentBits } from 'discord.js';
 
+const gifLinks = ["https://nekos.best/api/v2/hug", "https://nekos.best/api/v2/smile", "https://nekos.best/api/v2/highfive"];
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -36,9 +37,8 @@ client.on('guildMemberAdd', member => {
     }
 });
 
-const gifLinks = ["https://nekos.best/api/v2/hug", "https://nekos.best/api/v2/smile", "https://nekos.best/api/v2/highfive"];
-
 client.on('gotMessage', msg => {
+    console.log(msg.content); 
     if (msg.content == "!gif") {
 
         msg.channel.send("what? gif?");
