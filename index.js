@@ -52,7 +52,7 @@ const dice5ImageURL = "https://upload.wikimedia.org/wikipedia/commons/6/6c/Dice-
 const dice6ImageURL = "https://upload.wikimedia.org/wikipedia/commons/7/7a/Dice-6E.png";
 
 const dnd1ImageURL = "https://staticdelivery.nexusmods.com/mods/3474/images/thumbnails/16900/16900-1748536808-715746554.png";
-const dnd2ImageURL = "https://shop-dnd.com/wp-content/uploads/2022/07/d20-icon-2-min.png";
+const dnd2ImageURL = "https://mimic-dnd.com/image/cache/catalog/products/Icon/map00039/snimokekrana2025-06-11122347-600x315.png";
 const dnd3ImageURL = "https://i.ytimg.com/vi/TrO4Xy-8bS4/maxresdefault.jpg";
 const dnd4ImageURL = "https://www.clipartmax.com/png/middle/110-1109522_d20-countdown-die-55-mm-20-zijdige-dobbelsteen-55mm-blauw.png";
 const dnd5ImageURL = "https://images.squarespace-cdn.com/content/v1/63d859a99ef03729e2303286/1706630101297-ZBT5F1P67OVG6LC7YIA7/5+Sided+Die.png";
@@ -68,7 +68,7 @@ const dnd14ImageURL = "https://upload.wikimedia.org/wikipedia/commons/f/f5/Twent
 const dnd15ImageURL = "https://www.thediceshoponline.com/media/catalog/product/cache/f29f0998c4cc5290cdd61c5e4e3f186e/i/m/img_5238.jpg";
 const dnd16ImageURL = "https://www.thediceshoponline.com/media/catalog/product/cache/b4dabba0f5d3d937d7e27ad83222361c/d/_/d_g_pearl_red_gold_d16_dice.png";
 const dnd17ImageURL = "https://www.thediceshoponline.com/media/catalog/product/cache/f29f0998c4cc5290cdd61c5e4e3f186e/2/0/20859_1_big_21.jpg";
-const dnd18ImageURL = "https://s3.amazonaws.com/files.thegamecrafter.com/fe84b78ec236bfc90283a9d6bc66d1d528b16218";
+const dnd18ImageURL = "https://upload.wikimedia.org/wikipedia/commons/b/b4/D18_rhombicuboctahedron.JPG";
 const dnd19ImageURL = "https://static.wikia.nocookie.net/dice-collecting/images/d/da/D19_Rosirine.png/";
 const dnd20ImageURL = "https://i.ytimg.com/vi/N8Hm4_sOeBw/hq720.jpg";
 
