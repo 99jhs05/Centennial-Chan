@@ -81,22 +81,22 @@ client.on("messageCreate", async msg => {
         msg.channel.send(`**${dice}!**`);
 
         if (dice == 1){
-            response = await fetch(dice1ImageURL);
+            let response = await fetch(dice1ImageURL);
             msg.channel.send(response);
         } else if (dice == 2){
-            response = await fetch(dice2ImageURL);
+            let response = await fetch(dice2ImageURL);
             msg.channel.send(response);
         } else if (dice == 3){
-            response = await fetch(dice3ImageURL);
+            let response = await fetch(dice3ImageURL);
             msg.channel.send(response);
         } else if (dice == 4){
-            response = await fetch(dice4ImageURL);
+            let response = await fetch(dice4ImageURL);
             msg.channel.send(response);
         } else if (dice == 5){
-            response = await fetch(dice5ImageURL);
+            let response = await fetch(dice5ImageURL);
             msg.channel.send(response);
         } else {
-            response = await fetch(dice6ImageURL);
+            let response = await fetch(dice6ImageURL);
             msg.channel.send(response);
         }
     }
