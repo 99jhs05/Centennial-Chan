@@ -1,8 +1,9 @@
-import dotenv from 'dotenv'
-dotenv.config()
+import dotenv from 'dotenv';
+dotenv.config();
 
 import { Client, GatewayIntentBits } from 'discord.js';
 
+const fetch = require('node-fetch');
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -31,6 +32,19 @@ client.on('guildMemberAdd', member => {
         member.roles.add(defaultRole)
             .then(() => console.log(`Assigned default role to ${member.user.tag}`))
             .catch(console.error);
+    }
+});
+
+gifLinks = ["https://nekos.best/api/v2/hug", "https://nekos.best/api/v2/smile", "https://nekos.best/api/v2/highfive"];
+
+client.on('gotMessage', async msg => {
+    if (msg.content == "/gif") {
+
+        let url = gifLinks[Math.floor(Math.random() * array.length)];
+        let response = await fetch(url);
+        let json = await response.json();
+
+        msg.channel.send(json.results[0].url);
     }
 });
 
