@@ -38,7 +38,7 @@ client.on('guildMemberAdd', member => {
 gifLinks = ["https://nekos.best/api/v2/hug", "https://nekos.best/api/v2/smile", "https://nekos.best/api/v2/highfive"];
 
 client.on('gotMessage', async msg => {
-    if (msg.content == "/gif") {
+    if (msg.content == "!gif") {
 
         let url = gifLinks[Math.floor(Math.random() * array.length)];
         let response = await fetch(url);
