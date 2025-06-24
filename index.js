@@ -16,14 +16,14 @@ const client = new Client({
 });
 
 client.on("guildMemberAdd", async member => {
-    console.log('${member.user.tag} has joined the server!');
+    console.log(`${member.user.tag} has joined the server!`);
 
     // Example: Send a welcome message to a specific channel
     const welcomeChannelId = "1386903488684097640"; // Replace with your channel ID
     const welcomeChannel = member.guild.channels.cache.get(welcomeChannelId);
 
     if (welcomeChannel) {
-        welcomeChannel.send('Welcome to Centennial Anime Club, ${member}! :partying_face::partying_face: ');
+        welcomeChannel.send(`Welcome to Centennial Anime Club, ${member}! :partying_face::partying_face: `);
 
                 let url = gifLinks[Math.floor(Math.random() * gifLinks.length)];
         let response = await fetch(url);
@@ -38,7 +38,7 @@ client.on("guildMemberAdd", async member => {
 
     if (defaultRole) {
         member.roles.add(defaultRole)
-            .then(() => console.log('Assigned default role to ${member.user.tag}'))
+            .then(() => console.log(`Assigned default role to ${member.user.tag}`))
             .catch(console.error);
     }
 });
