@@ -48,7 +48,7 @@ const dice2ImageURL = "https://upload.wikimedia.org/wikipedia/commons/1/18/Dice-
 const dice3ImageURL = "https://upload.wikimedia.org/wikipedia/commons/7/70/Dice-3.png";
 const dice4ImageURL = "https://upload.wikimedia.org/wikipedia/commons/a/a9/Dice-4.png";
 const dice5ImageURL = "https://upload.wikimedia.org/wikipedia/commons/6/6c/Dice-5.png";
-const dice6ImageURL = "https://upload.wikimedia.org/wikipedia/commons/5/5c/Dice-6.png";
+const dice6ImageURL = "https://upload.wikimedia.org/wikipedia/commons/7/7a/Dice-6E.png";
 
 client.on("messageCreate", async msg => {
 
@@ -81,19 +81,24 @@ client.on("messageCreate", async msg => {
         msg.channel.send(`**${dice}!**`);
 
         if (dice == 1){
-            let response = await fetch(dice1ImageURL);
+            response = await fetch(dice1ImageURL);
+            msg.channel.send(response);
         } else if (dice == 2){
-            let response = await fetch(dice2ImageURL);
+            response = await fetch(dice2ImageURL);
+            msg.channel.send(response);
         } else if (dice == 3){
-            let response = await fetch(dice3ImageURL);
+            response = await fetch(dice3ImageURL);
+            msg.channel.send(response);
         } else if (dice == 4){
-            let response = await fetch(dice4ImageURL);
+            response = await fetch(dice4ImageURL);
+            msg.channel.send(response);
         } else if (dice == 5){
-            let response = await fetch(dice5ImageURL);
+            response = await fetch(dice5ImageURL);
+            msg.channel.send(response);
         } else {
-            let response = await fetch(dice6ImageURL);
+            response = await fetch(dice6ImageURL);
+            msg.channel.send(response);
         }
-        msg.channel.send(response);
     }
     
     else if (msg.content == "!dice20") {
