@@ -13,6 +13,8 @@ const client = new Client({
     ],
 });
 
+client.login(process.env.DISCORD_TOKEN);
+
 client.on('guildMemberAdd', member => {
     console.log(`${member.user.tag} has joined the server!`);
 
@@ -49,5 +51,3 @@ client.on('gotMessage', async msg => {
         msg.channel.send(json.results[0].url);
     }
 });
-
-client.login(process.env.DISCORD_TOKEN);
