@@ -17,7 +17,7 @@ client.on('guildMemberAdd', member => {
     console.log(`${member.user.tag} has joined the server!`);
 
     // Example: Send a welcome message to a specific channel
-    const welcomeChannelId = '1386860753641930905'; // Replace with your channel ID
+    const welcomeChannelId = '1386903488684097640'; // Replace with your channel ID
     const welcomeChannel = member.guild.channels.cache.get(welcomeChannelId);
 
     if (welcomeChannel) {
@@ -25,7 +25,7 @@ client.on('guildMemberAdd', member => {
     }
 
     // Example: Assign a default role
-    const defaultRoleId = '1386865801155579985'; // Replace with your role ID
+    const defaultRoleId = '1386903830725398690'; // Replace with your role ID
     const defaultRole = member.guild.roles.cache.get(defaultRoleId);
 
     if (defaultRole) {
