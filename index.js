@@ -40,6 +40,8 @@ gifLinks = ["https://nekos.best/api/v2/hug", "https://nekos.best/api/v2/smile", 
 client.on('gotMessage', async msg => {
     if (msg.content == "!gif") {
 
+        msg.channel.send("what? gif?");
+
         let url = gifLinks[Math.floor(Math.random() * array.length)];
         let response = await fetch(url);
         let json = await response.json();
