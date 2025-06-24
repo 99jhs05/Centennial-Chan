@@ -42,7 +42,7 @@ client.on("messageCreate", async msg => {
 
         msg.channel.send("what? gif?");
 
-        let url = gifLinks[Math.floor(Math.random() * array.length)];
+        let url = gifLinks[Math.floor(Math.random() * gifLinks.length)];
         let response = await fetch(url);
         let json = await response.json();
 
