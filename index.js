@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 dotenv.config()
 
-import { Client, GatewayIntentBits } from 'discord.js';
+import { Client, GatewayIntentBits, AttachmentBuilder, EmbedBuilder } from 'discord.js';
 
 const client = new Client({
     intents: [
@@ -51,26 +51,26 @@ const dice4ImageURL = "https://upload.wikimedia.org/wikipedia/commons/a/a9/Dice-
 const dice5ImageURL = "https://upload.wikimedia.org/wikipedia/commons/6/6c/Dice-5.png";
 const dice6ImageURL = "https://upload.wikimedia.org/wikipedia/commons/7/7a/Dice-6E.png";
 
-const dnd1ImageURL = "https://i.imgur.com/Iv7DiXm.png";
-const dnd2ImageURL = "https://i.imgur.com/qSkxeBC.png";
-const dnd3ImageURL = "https://i.imgur.com/jO08HBK.png";
-const dnd4ImageURL = "https://i.imgur.com/pLCXFcz.png";
-const dnd5ImageURL = "https://i.imgur.com/l5T7ddl.png";
-const dnd6ImageURL = "https://i.imgur.com/lmUKh2x.png";
-const dnd7ImageURL = "https://i.imgur.com/WN6Ctv2.png";
-const dnd8ImageURL = "https://i.imgur.com/vFc6Stz.png";
-const dnd9ImageURL = "https://i.imgur.com/2EP9uzY.png";
-const dnd10ImageURL = "https://i.imgur.com/qUWFl9o.png";
-const dnd11ImageURL = "https://i.imgur.com/RaC4uMC.png";
-const dnd12ImageURL = "https://i.imgur.com/xIqrDx9.png";
-const dnd13ImageURL = "https://i.imgur.com/Px4mK20.png";
-const dnd14ImageURL = "https://i.imgur.com/lWUftwK.png";
-const dnd15ImageURL = "https://i.imgur.com/3xHtcn4.png";
-const dnd16ImageURL = "https://i.imgur.com/d5uCuO2.png";
-const dnd17ImageURL = "https://i.imgur.com/Pu8Wc7l.png";
-const dnd18ImageURL = "https://i.imgur.com/VNx6QUD.png";
-const dnd19ImageURL = "https://i.imgur.com/1ZSZxhg.png";
-const dnd20ImageURL = "https://i.imgur.com/BxJkWGs.png";
+const dnd1ImageURL = new AttachmentBuilder('../assets/d1.png');
+const dnd2ImageURL = new AttachmentBuilder('../assets/d2.png');
+const dnd3ImageURL = new AttachmentBuilder('../assets/d3.png');
+const dnd4ImageURL = new AttachmentBuilder('../assets/d4.png');
+const dnd5ImageURL = new AttachmentBuilder('../assets/d5.png');
+const dnd6ImageURL = new AttachmentBuilder('../assets/d6.png');
+const dnd7ImageURL = new AttachmentBuilder('../assets/d7.png');
+const dnd8ImageURL = new AttachmentBuilder('../assets/d8.png');
+const dnd9ImageURL = new AttachmentBuilder('../assets/d9.png');
+const dnd10ImageURL = new AttachmentBuilder('../assets/d10.png');
+const dnd11ImageURL = new AttachmentBuilder('../assets/d11.png');
+const dnd12ImageURL = new AttachmentBuilder('../assets/d12.png');
+const dnd13ImageURL = new AttachmentBuilder('../assets/d13.png');
+const dnd14ImageURL = new AttachmentBuilder('../assets/d14.png');
+const dnd15ImageURL = new AttachmentBuilder('../assets/d15.png');
+const dnd16ImageURL = new AttachmentBuilder('../assets/d16.png');
+const dnd17ImageURL = new AttachmentBuilder('../assets/d17.png');
+const dnd18ImageURL = new AttachmentBuilder('../assets/d18.png');
+const dnd19ImageURL = new AttachmentBuilder('../assets/d19.png');
+const dnd20ImageURL = new AttachmentBuilder('../assets/d20.png');
 
 
 client.on("messageCreate", async msg => {
