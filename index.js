@@ -47,6 +47,7 @@ const dnd20ImageURL = new AttachmentBuilder('../container/assets/d20.png');
 const announceChannelID = "1268354988489576458";
 const welcomeChannelId = "1268322971274182731";
 const defaultRoleId = "1268329661562224724";
+const execChannelID = "1268353799077105708";
 
 client.on("guildMemberAdd", async member => {
     console.log(`${member.user.tag} has joined the server!`);
@@ -180,7 +181,7 @@ client.on("messageCreate", async msg => {
 
     if(msg.content.startsWith("!announce")){
 
-        if(msg.channelId == welcomeChannelId){
+        if(msg.channelId == execChannelID){
             let imageAttachments = msg.attachments;
             let imageAttachmentsURLs = [];
             imageAttachments.forEach((url) => {
