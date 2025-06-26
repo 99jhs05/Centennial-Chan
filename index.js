@@ -174,7 +174,7 @@ client.on("messageCreate", async msg => {
     if(msg.content.startsWith("!announce")){
 
         if(msg.channelId == welcomeChannelId){
-            let imageAttachments = msg.attachments;
+            let imageAttachment = msg.attachments.first();
             /* This takes the sentence sent, and makes it an array. In this case, a list of words.
             It 'splits' the list up wherever it sees space.*/
             let sentence = msg.content.split(" ");
@@ -189,7 +189,7 @@ client.on("messageCreate", async msg => {
 
             // Now join the list back together into a sentence with "join()" and set that as the new sentence.
             sentence = sentence.join(" ");
-            client.channels.cache.get(announceChannelID).send({ content: sentence, files: imageAttachments });
+            client.channels.cache.get(announceChannelID).send({ content: sentence, files: imageAttachment.data });
         }
     }
 });
