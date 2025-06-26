@@ -22,6 +22,7 @@ const dice4ImageURL = "https://upload.wikimedia.org/wikipedia/commons/a/a9/Dice-
 const dice5ImageURL = "https://upload.wikimedia.org/wikipedia/commons/6/6c/Dice-5.png";
 const dice6ImageURL = "https://upload.wikimedia.org/wikipedia/commons/7/7a/Dice-6E.png";
 
+const diceRollgif = new AttachmentBuilder('../container/assets/diceroll.gif'); 
 const dnd1ImageURL = new AttachmentBuilder('../container/assets/d1.png');
 const dnd2ImageURL = new AttachmentBuilder('../container/assets/d2.png');
 const dnd3ImageURL = new AttachmentBuilder('../container/assets/d3.png');
@@ -108,26 +109,31 @@ client.on("messageCreate", async msg => {
     }
 
     else if (msg.content == "!dice6") {
+        msg.channel.send({ files: [diceRollgif] });
         let dice = Math.floor(1 + Math.random() * 6);
 
-        if (dice == 1){
+        setTimeout(() => {
+            if (dice == 1){
             msg.channel.send({ content: `**${dice}!**`, files: [dice1ImageURL] })
-        } else if (dice == 2){
+            } else if (dice == 2){
             msg.channel.send({ content: `**${dice}!**`, files: [dice2ImageURL] })
-        } else if (dice == 3){
+            } else if (dice == 3){
             msg.channel.send({ content: `**${dice}!**`, files: [dice3ImageURL] })
-        } else if (dice == 4){
+            } else if (dice == 4){
             msg.channel.send({ content: `**${dice}!**`, files: [dice4ImageURL] })
-        } else if (dice == 5){
+            } else if (dice == 5){
             msg.channel.send({ content: `**${dice}!**`, files: [dice5ImageURL] })
-        } else {
+            } else {
             msg.channel.send({ content: `**${dice}!**`, files: [dice6ImageURL] })
-        }
+            }
+        }, 2500);
     }
     
     else if (msg.content == "!dice20") {
+        msg.channel.send({ files: [diceRollgif] });
         let dice = Math.floor(1 + Math.random() * 20);
 
+        setTimeout(() => {
         if (dice == 1){
             msg.channel.send({ content: `**${dice}! CRITICAL FAILURE. :sadge:**`, files: [dnd1ImageURL] })
         } else if (dice == 2){
@@ -169,6 +175,7 @@ client.on("messageCreate", async msg => {
         } else {
             msg.channel.send({ content: `**${dice}! CRITICAL SUCCESS! :fire:**`, files: [dnd20ImageURL] })
         }
+        }, 2500);
     }
 
     if(msg.content.startsWith("!announce")){
