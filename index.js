@@ -24,7 +24,7 @@ client.on("guildMemberAdd", async member => {
     const welcomeChannel = member.guild.channels.cache.get(welcomeChannelId);
 
     if (welcomeChannel) {
-        welcomeChannel.send(`Welcome to Centennial Anime Club, ${member}! :partying_face::partying_face: `);
+        welcomeChannel.send(`Welcome to Centennial Anime Club, ${member}! :Koncha:`);
 
         let url = gifLinks[Math.floor(Math.random() * gifLinks.length)];
         let response = await fetch(url);
@@ -99,7 +99,11 @@ client.on("messageCreate", async msg => {
         msg.channel.send(json.results[0].url);
     }
 
-    if (msg.content == "!dice6") {
+    if (msg.content == "!duce6" || msg.content == "!duce20") { 
+        msg.channel.send("It's not ***duce*** LOOOOL");
+    }
+
+    else if (msg.content == "!dice6") {
         let dice = Math.floor(1 + Math.random() * 6);
 
         if (dice == 1){
@@ -121,7 +125,7 @@ client.on("messageCreate", async msg => {
         let dice = Math.floor(1 + Math.random() * 20);
 
         if (dice == 1){
-            msg.channel.send({ content: `**${dice}!**`, files: [dnd1ImageURL] })
+            msg.channel.send({ content: `**${dice}! CRITICAL FAILURE. :sadge:**`, files: [dnd1ImageURL] })
         } else if (dice == 2){
             msg.channel.send({ content: `**${dice}!**`, files: [dnd2ImageURL] })
         } else if (dice == 3){
@@ -159,8 +163,28 @@ client.on("messageCreate", async msg => {
         } else if (dice == 19){
             msg.channel.send({ content: `**${dice}!**`, files: [dnd19ImageURL] })
         } else {
-            msg.channel.send({ content: `**${dice}!**`, files: [dnd20ImageURL] })
+            msg.channel.send({ content: `**${dice}! CRITICAL SUCCESS! :fire:**`, files: [dnd20ImageURL] })
         }
+    }
+
+    if(msg.content.startsWith("!announce")){
+
+        /* This takes the sentence sent, and makes it an array. In this case, a list of words.
+        It 'splits' the list up wherever it sees space.*/
+        let sentence = msg.content.split(" ");
+    
+        /* .shift(), alters the list. It removes the first thing in the list. This would be the "!say" word.
+        If we assigned shift() to a variable.
+        Like "let x = msg.shift()" ... "x" would be the word that was removed.
+        This is handy for grabbing command words. If you used shift() again, it would remove the second,
+        then the third, each time that you type it.*/
+
+        sentence.shift();
+
+        // Now join the list back together into a sentence with "join()" and set that as the new sentence.
+        sentence = sentence.join(" ");
+
+        msg.channel.send(sentence);
     }
 });
 
