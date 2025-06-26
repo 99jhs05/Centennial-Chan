@@ -174,7 +174,7 @@ client.on("messageCreate", async msg => {
     if(msg.content.startsWith("!announce")){
 
         if(msg.channelId == welcomeChannelId){
-            let imageAttachments = message.attachments;
+            let imageAttachments = msg.attachments;
             /* This takes the sentence sent, and makes it an array. In this case, a list of words.
             It 'splits' the list up wherever it sees space.*/
             let sentence = msg.content.split(" ");
