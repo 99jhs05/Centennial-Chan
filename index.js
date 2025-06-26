@@ -181,9 +181,12 @@ client.on("messageCreate", async msg => {
 
     if(msg.content.startsWith("!announce")){
 
+        console.log(`channelid: ${msg.channelId}`);
+
         if(msg.channelId == execChannelID){
             let imageAttachments = msg.attachments;
             let imageAttachmentsURLs = [];
+
             imageAttachments.forEach((url) => {
                 imageAttachmentsURLs.push(url);
             });
