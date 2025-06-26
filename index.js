@@ -44,9 +44,9 @@ const dnd18ImageURL = new AttachmentBuilder('../container/assets/d18.png');
 const dnd19ImageURL = new AttachmentBuilder('../container/assets/d19.png');
 const dnd20ImageURL = new AttachmentBuilder('../container/assets/d20.png');
 
-const announceChannelID = "1386903580887224472";
-const welcomeChannelId = "1386903488684097640";
-const defaultRoleId = "1386903830725398690";
+const announceChannelID = "1268354988489576458";
+const welcomeChannelId = "1268322971274182731";
+const defaultRoleId = "1268329661562224724";
 
 client.on("guildMemberAdd", async member => {
     console.log(`${member.user.tag} has joined the server!`);
