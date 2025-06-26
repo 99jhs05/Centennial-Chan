@@ -15,35 +15,6 @@ const client = new Client({
 
 const gifLinks = ["https://nekos.best/api/v2/hug", "https://nekos.best/api/v2/smile", "https://nekos.best/api/v2/highfive"];
 const gifMessages = ["Did someone say gif?", "Here's a random Anime gif for you...", "Yeah, I'm bored too. Here's the gif you wanted."];
-
-client.on("guildMemberAdd", async member => {
-    console.log(`${member.user.tag} has joined the server!`);
-
-    // Example: Send a welcome message to a specific channel
-    const welcomeChannelId = "1386903488684097640"; // Replace with your channel ID
-    const welcomeChannel = member.guild.channels.cache.get(welcomeChannelId);
-
-    if (welcomeChannel) {
-        welcomeChannel.send(`Welcome to Centennial Anime Club, ${member}! :Koncha:`);
-
-        let url = gifLinks[Math.floor(Math.random() * gifLinks.length)];
-        let response = await fetch(url);
-        let json = await response.json();
-
-        welcomeChannel.send(json.results[0].url);
-    }
-
-    // Example: Assign a default role
-    const defaultRoleId = "1386903830725398690"; // Replace with your role ID
-    const defaultRole = member.guild.roles.cache.get(defaultRoleId);
-
-    if (defaultRole) {
-        member.roles.add(defaultRole)
-            .then(() => console.log(`Assigned default role to ${member.user.tag}`))
-            .catch(console.error);
-    }
-});
-
 const dice1ImageURL = "https://upload.wikimedia.org/wikipedia/commons/c/c5/Dice-1.png";
 const dice2ImageURL = "https://upload.wikimedia.org/wikipedia/commons/1/18/Dice-2.png";
 const dice3ImageURL = "https://upload.wikimedia.org/wikipedia/commons/7/70/Dice-3.png";
@@ -72,6 +43,35 @@ const dnd18ImageURL = new AttachmentBuilder('../container/assets/d18.png');
 const dnd19ImageURL = new AttachmentBuilder('../container/assets/d19.png');
 const dnd20ImageURL = new AttachmentBuilder('../container/assets/d20.png');
 
+const announceChannelID = "1386903580887224472";
+const welcomeChannelId = "1386903488684097640";
+
+client.on("guildMemberAdd", async member => {
+    console.log(`${member.user.tag} has joined the server!`);
+
+    //Send a welcome message to a specific channel
+    const welcomeChannel = member.guild.channels.cache.get(welcomeChannelId);
+
+    if (welcomeChannel) {
+        welcomeChannel.send(`Welcome to Centennial Anime Club, ${member}! :Koncha:`);
+
+        let url = gifLinks[Math.floor(Math.random() * gifLinks.length)];
+        let response = await fetch(url);
+        let json = await response.json();
+
+        welcomeChannel.send(json.results[0].url);
+    }
+
+    // Example: Assign a default role
+    const defaultRoleId = "1386903830725398690"; // Replace with your role ID
+    const defaultRole = member.guild.roles.cache.get(defaultRoleId);
+
+    if (defaultRole) {
+        member.roles.add(defaultRole)
+            .then(() => console.log(`Assigned default role to ${member.user.tag}`))
+            .catch(console.error);
+    }
+});
 
 client.on("messageCreate", async msg => {
 
@@ -183,8 +183,7 @@ client.on("messageCreate", async msg => {
 
         // Now join the list back together into a sentence with "join()" and set that as the new sentence.
         sentence = sentence.join(" ");
-
-        msg.channel.send(sentence);
+        client.channels.cache.get(announceChannelID).send(sentence);
     }
 });
 
