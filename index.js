@@ -45,6 +45,7 @@ const dnd20ImageURL = new AttachmentBuilder('../container/assets/d20.png');
 
 const announceChannelID = "1386903580887224472";
 const welcomeChannelId = "1386903488684097640";
+const defaultRoleId = "1386903830725398690";
 
 client.on("guildMemberAdd", async member => {
     console.log(`${member.user.tag} has joined the server!`);
@@ -62,8 +63,7 @@ client.on("guildMemberAdd", async member => {
         welcomeChannel.send(json.results[0].url);
     }
 
-    // Example: Assign a default role
-    const defaultRoleId = "1386903830725398690"; // Replace with your role ID
+    //Assign a default role
     const defaultRole = member.guild.roles.cache.get(defaultRoleId);
 
     if (defaultRole) {
@@ -101,6 +101,10 @@ client.on("messageCreate", async msg => {
 
     if (msg.content == "!duce6" || msg.content == "!duce20") { 
         msg.channel.send("It's not ***duce*** LOOOOL");
+    }
+
+    else if (msg.content == "!dice") { 
+        msg.channel.send("Dice what? 6 or 20?");
     }
 
     else if (msg.content == "!dice6") {
@@ -169,21 +173,24 @@ client.on("messageCreate", async msg => {
 
     if(msg.content.startsWith("!announce")){
 
-        /* This takes the sentence sent, and makes it an array. In this case, a list of words.
-        It 'splits' the list up wherever it sees space.*/
-        let sentence = msg.content.split(" ");
+        if(message.channelId == welcomeChannelId){
+            let imageAttachments = message.attachments;
+            /* This takes the sentence sent, and makes it an array. In this case, a list of words.
+            It 'splits' the list up wherever it sees space.*/
+            let sentence = msg.content.split(" ");
     
-        /* .shift(), alters the list. It removes the first thing in the list. This would be the "!say" word.
-        If we assigned shift() to a variable.
-        Like "let x = msg.shift()" ... "x" would be the word that was removed.
-        This is handy for grabbing command words. If you used shift() again, it would remove the second,
-        then the third, each time that you type it.*/
+            /* .shift(), alters the list. It removes the first thing in the list. This would be the "!say" word.
+            If we assigned shift() to a variable.
+            Like "let x = msg.shift()" ... "x" would be the word that was removed.
+            This is handy for grabbing command words. If you used shift() again, it would remove the second,
+            then the third, each time that you type it.*/
 
-        sentence.shift();
+            sentence.shift();
 
-        // Now join the list back together into a sentence with "join()" and set that as the new sentence.
-        sentence = sentence.join(" ");
-        client.channels.cache.get(announceChannelID).send(sentence);
+            // Now join the list back together into a sentence with "join()" and set that as the new sentence.
+            sentence = sentence.join(" ");
+            client.channels.cache.get(announceChannelID).send({ content: sentence, files: imageAttachments });
+        }
     }
 });
 
