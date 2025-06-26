@@ -189,7 +189,7 @@ client.on("messageCreate", async msg => {
 
             // Now join the list back together into a sentence with "join()" and set that as the new sentence.
             sentence = sentence.join(" ");
-            client.channels.cache.get(announceChannelID).send({ content: sentence, files: imageAttachment.data });
+            client.channels.cache.get(announceChannelID).send({ content: sentence, files: imageAttachment });
         }
     }
 });
