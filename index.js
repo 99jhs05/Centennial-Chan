@@ -136,7 +136,7 @@ client.on("messageCreate", async msg => {
 
         setTimeout(() => {
         if (dice == 1){
-            msg.channel.send({ content: `**${dice}! CRITICAL FAILURE. :sadge:**`, files: [dnd1ImageURL] })
+            msg.channel.send({ content: `**${dice}! CRITICAL FAILURE. <:sadge:1285747092438122506>**`, files: [dnd1ImageURL] })
         } else if (dice == 2){
             msg.channel.send({ content: `**${dice}!**`, files: [dnd2ImageURL] })
         } else if (dice == 3){
