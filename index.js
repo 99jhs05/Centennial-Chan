@@ -106,7 +106,7 @@ client.on("messageCreate", async msg => {
     }
 
     else if (msg.content == "!dice") { 
-        msg.channel.send("Dice what? 6 or 20?");
+        msg.channel.send("Dice what? 6 or 20 or 100?");
     }
 
     else if (msg.content == "!dice6") {
@@ -179,10 +179,16 @@ client.on("messageCreate", async msg => {
         }, 2500);
     }
 
+    else if (msg.content == "!dice100") {
+        msg.channel.send({ files: [diceRollgif] });
+        let dice = Math.floor(1 + Math.random() * 100);
+
+        setTimeout(() => {
+            msg.channel.send({ content: `**${dice}!**` })
+        }, 2500);
+    }
+
     if(msg.content.startsWith("!announce")){
-
-        console.log(`channelid: ${msg.channelId}`);
-
         if(msg.channelId == execChannelID){
             let imageAttachments = msg.attachments;
             let imageAttachmentsURLs = [];
