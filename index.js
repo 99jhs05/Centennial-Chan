@@ -56,7 +56,7 @@ client.on("guildMemberAdd", async member => {
     const welcomeChannel = member.guild.channels.cache.get(welcomeChannelId);
 
     if (welcomeChannel) {
-        welcomeChannel.send(`Welcome to Centennial Anime Club, ${member}! :Koncha:`);
+        welcomeChannel.send(`Welcome to Centennial Anime Club, ${member}! <:cuter_CentennialChan:1284704031708807230>`);
 
         let url = gifLinks[Math.floor(Math.random() * gifLinks.length)];
         let response = await fetch(url);
